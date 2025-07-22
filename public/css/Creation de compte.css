@@ -184,6 +184,10 @@ body{
 		flex-direction:column;
     width: 320px;
 	}
+  .captcha-img {
+    margin-top: -45px;
+    position: relative;
+  }
 	.text {
 		margin:.5em!important;
      padding-top: -340px;
@@ -197,7 +201,7 @@ body{
 	}
 	.spinner {
 		margin:2em .5em .5em .5em!important;
-    padding-top: 80px;
+    padding-top: 45px;
     padding-right: 200px;
     position: absolute;
 	}
