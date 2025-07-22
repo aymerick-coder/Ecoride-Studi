@@ -131,12 +131,6 @@ function remplirDatalist(id, villes) {
 ChargerTrajets();
                    
 
-// const avispage = document.getElementById("nos_avis");
-
-// avispage.addEventListener('click',() => {
-//   window.location.href = "/nos_avis.html";
-// })
-
 
 
 
