@@ -15,8 +15,6 @@ async function chargerAvisChauffeur() {
             }
         });
         const avis = await res.json();
-        console.log("ID conducteur", conducteurId);
-        console.log("Données avis", avis);
 
         const table = document.getElementById("employee-Avis");
         table.innerHTML = "";
@@ -120,7 +118,6 @@ async function validerIncident(id) {
       method: 'PATCH'
     });
     const data = await res.json();
-    console.log("✅", data.message);
     chargerIncidents(); 
   } catch (err) {
     console.error("Erreur validation :", err);
@@ -133,10 +130,9 @@ async function rejeterIncident(id) {
       method: 'PATCH'
     });
     const data = await res.json();
-    console.log("✅", data.message);
     chargerIncidents(); 
   } catch (err) {
-    console.error("❌ Erreur suppression :", err);
+    console.error("Erreur suppression :", err);
   }
 }
 document.addEventListener("DOMContentLoaded", chargerIncidents);
