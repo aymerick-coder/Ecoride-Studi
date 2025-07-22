@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="user-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous" defer></script>
+    <script src="user-dashboard.js" defer></script>
+    <title>Tableau de bord-EcoRide</title>
+</head>
+<body class="animated fadeIn">
+ <body>
+  <section class="py-5">
+    <div id="InfoUser" class="container">
+      <h3 id="userName" class="text-start pb-4 fw-bold text-capitalize text-dark"></h3>
+      <div class="row">
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
+          <div class="bg-white p-3 rounded-4 shadow-lg mb-4 text-center">
+            <img id="userPhoto" src="" alt="Photo de profil" width="128" height="128" style="object-fit: cover; border-radius: 10%;">
+            <div class="input-group mb-3">
+                    <input  id="photoInput" title="Changer votre photo de profile" type="file" name="photo" class="form-control form-control-lg bg-light fs-6 photo" id="photo">
+                </div>
+                <button id="uploadPhotoBtn" class="btn btn-primary">Mettre à jour la photo</button>
+            <h6 id="userFullName" class="mb-0 fw-bold text-dark"></h6>
+            <small id="userEmail" class="text-muted"></small>
+          </div>
+          <button class="btn btn-outline-primary d-md-none w-100 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#memberNav" aria-expanded="false" aria-controls="memberNav">
+            ☰ Menu
+          </button>
+          <div class="collapse d-md-block" id="memberNav">
+            <div class="list-group rounded-4 shadow-lg">
+              <a class="list-group-item list-group-item-action active p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-home">
+                <i class="bi bi-speedometer2"></i>Tableau de bord
+              </a>
+              <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-address">
+                <i class="bi bi-geo-alt"></i>Historique de vos trajets (conducteur)
+              </a>
+                <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-wishlist">
+                <i class="bi bi-geo-alt"></i> Historique de vos trajets (passager)
+              </a>
+              <a id="chauffeur" class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-profile">
+                <i class="bi bi-person-circle"></i> Ajouter un Véhicule
+              </a>
+              <a id="chauffeur" class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-ajout-vehi">
+                <i class="bi bi-person-circle"></i> Vos vehicules
+              </a>
+               <a id="chauffeur2" class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-trajet">
+                <i class="bi bi-person-circle"></i> Ajouter un Trajet
+              </a>
+               <a id="reserv" class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-avis">
+                <i class="bi bi-person-circle"></i> Un avis sur un chauffeur ?
+              </a>
+              <a id="reserv" class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-incidents">
+                <i class="bi bi-person-circle"></i> Un covoiturage c'est mal passé ?
+              </a>
+              <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-support">
+                <i class="bi bi-life-preserver"></i> Support
+              </a>
+               <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-back">
+                <i class="bi bi-box-arrow-left"></i>EcoRide
+              </a>
+               <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-deco">
+                <i class="bi bi-box-arrow-left"></i> Déconnexion
+              </a>
+               <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-remove">
+                <i class="bi bi-person-square"></i> Supprimer le conte
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-8 col-lg-9">
+          <div class="tab-content">
+
+           
+            <div class="tab-pane fade show active" id="dash-home">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-4">Tableau de bord</h4>
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-geo-alt text-success fs-2"></i>
+                      <h6 class="fw-bold mt-2">Trajets (conducteur)</h6>
+                      <p id="trajet_conducteur" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-geo-alt text-success fs-2"></i>
+                      <h6 class="fw-bold mt-2">Trajets (passager)</h6>
+                      <p id="trajet_passager" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-geo-alt text-success fs-2"></i>
+                      <h6 class="fw-bold mt-2">Vos vehicules</h6>
+                      <p id="vos_vehicules" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-bag-check text-primary fs-2"></i>
+                      <h6 class="fw-bold mt-2">Crédits</h6>
+                      <p id="credits" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="tab-pane fade" id="dash-profile">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Ajouter un Véhicule</h4>
+                <div id="Alert0" class="alert alert-success" role="alert">
+                  Trajet créer avec succès ! cliquez dessus pour fermer le message.
+                </div>
+                <form id="vehicule-form" class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Plaque d'immatriculation : </label>
+                    <input name="immatriculation" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Date de première immatriculation : </label>
+                    <input name="date_premiere_immatriculation" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Modèle : </label>
+                    <input name="modele" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Couleur : </label>
+                    <input name="couleur" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Marque du/des Véhicule(s) : </label>
+                    <input name="marque" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Nombre de places disponibles  : </label>
+                    <input name="nombre_places" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label for="type_energie">Type d'énergie :</label>
+                    <select name="type_energie" id="type_energie" required>
+                  <option value="essence">Essence</option>
+                    <option value="diesel">Diesel</option>
+                   <option value="electrique">Électrique</option>
+                    <option value="hybride">Hybride</option>
+                   </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Fumeur : </label>
+                   <input name="fumeur" class="exp-box" type="checkbox"  id="fumeur">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Animaux : </label>
+                   <input name="animaux" class="exp-box" type="checkbox" id="animaux">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Voyage écologique : </label>
+                 <input name="voyage_ecologique" class="exp-box" type="checkbox" id="voyage_ecologique">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Souhaitez vous ajouter d'autres préference ? </label>
+                    <textarea name="preferences" id="" type="text" class="form-control"></textarea>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-primary px-4" type="submit">Sauvegarder</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+
+
+            <div class="tab-pane fade" id="dash-trajet">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Ajouter un trajet : </h4>
+                <div id="Alert1" class="alert alert-success" role="alert">
+                  Trajet créer avec succès ! cliquez dessus pour fermer le message.
+                </div>
+                <form id="trajet-form" class="row g-3">
+                  <p> <span style="text-decoration: underline ; color: red;">Attention</span> : <strong>avant d'ajouter un trajet, 
+                    verifiez que vous avez ajouté un vehicule.</strong></p>
+                  <div class="col-md-6">
+                    <label class="form-label">Départ :</label>
+                    <input name="ville_depart" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Heure de départ : </label>
+                    <input name="heure_depart" type="time" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Arrivée : </label>
+                    <input name="ville_arrivee" type="text" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Heure d'arrivée : </label>
+                    <input name="heure_arrivee" type="time" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Date : </label>
+                    <input name="date_creation" type="date" class="form-control" required>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Crédits  : </label>
+                    <input name="prix_credits" type="number" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Séléctionner votre vehicule  : </label>
+                   <select name="vehicule_id" class="form-control" required>
+                    <option value="" disabled selected>Choisir un véhicule</option>
+                    </select>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-primary px-4" type="submit">Sauvegarder</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+
+             <div class="tab-pane fade" id="dash-wishlist">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 id="sectionhist" class="fw-semibold text-dark mb-3">Historique de vos trajets (passager)</h4>
+                <div id="hist" class="table-responsive">
+                 <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Trajet : </th>
+                                    <th scope="col">Chauffeur : </th>
+                                    <th scope="col">Date : </th>
+                                    <th scope="col">Heure du départ : </th>
+                                    <th scope="col">Heure d'arrivée : </th>
+                                    <th scope="col">Crédits dépensés : </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-hist"></tbody>
+                        </table>
+                   </div>
+              </div>
+             </div>
+    
+
+
+             <div class="tab-pane fade" id="dash-address">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 id="sectionhist" class="fw-semibold text-dark mb-3">Historique de vos trajets (conducteur)</h4>
+                <div id="hist" class="table-responsive">
+                 <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Trajet : </th>
+                                    <th scope="col">Date : </th>
+                                    <th scope="col">Heure du départ : </th>
+                                    <th scope="col">Heure d'arrivée : </th>
+                                    <th scope="col">Passagers : </th>
+                                    <th scope="col">Vehicule : </th>
+                                    <th scope="col">Crédits : </th>
+                                    <th scope="col">statut : </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-hist-2"></tbody>
+                        </table>
+                   </div>
+              </div>
+             </div>
+
+
+            <div class="tab-pane fade" id="dash-ajout-vehi">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 id="sectionhist" class="fw-semibold text-dark mb-3">Vehicule(s) ajouté(s)</h4>
+                <div id="hist" class="table-responsive">
+                 <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">plaque d'immatriculation : </th>
+                                    <th scope="col">date de première immatriculation : </th>
+                                    <th scope="col">modèle : </th>
+                                    <th scope="col">couleur : </th>
+                                    <th scope="col">marque du/des vehicules : </th>
+                                    <th scope="col">nombres de places disponnibles : </th>
+                                    <th scope="col">Energie utilisée : </th>
+                                    <th scope="col">fumeur : </th>
+                                    <th scope="col">annimaux : </th>
+                                    <th scope="col">voyage écologique : </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-Voit"></tbody>
+                        </table>
+                   </div>
+              </div>
+             </div>
+
+
+              <div class="tab-pane fade" id="dash-avis">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Vous avez un avis concernant un chauffeur ? </h4>
+                <div id="Alert2" class="alert alert-success" role="alert">
+                  Avis envoyé avec succès ! cliquez dessus pour fermer le message.
+                </div>
+                <form id="Avis_Chauff-form" class="row g-3">
+                  <p> <span style="text-decoration: underline"> <strong>Que votre avis sois positif ou negatifs, 
+                    vous pouvez nous en faire part, n'hesitez pas !</strong></p>
+                    <div class="col-md-6">
+                    <select name="conducteur_id" id="conducteur_id" required>
+                    <option value="">Sélectionner un conducteur</option>
+                  </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Trajet efféctué : </label>
+                    <input name="Trajet" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Note (1-5) :</label>
+                    <input type="range" min="1" max="5" name="note" required value="1">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Ponctualité : </label>
+                    <select name="ponctualite">
+                  <option>Très ponctuel</option>
+                  <option>Légèrement en retard</option>
+                  <option>Très en retard</option>
+                  </select>
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Conduite sécurisée ? </label>
+                     <input type="radio" name="securite" value="oui" required> Oui
+                     <input type="radio" name="securite" value="non"> Non
+                  </div>
+                   <div class="col-md-6">
+                    <label class="form-label">Recommander ce chauffeur ? </label>
+                      <input type="radio" name="recommande" value="oui" required> Oui
+                      <input type="radio" name="recommande" value="non"> Non
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Commentaire : </label>
+                    <textarea name="commentaire" id="" type="text" class="form-control"></textarea>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-primary px-4" type="submit">Envoyer</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="dash-incidents">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Un covoiturage c'est mal passé ? </h4>
+                 <div id="Alert3" class="alert alert-success" role="alert">
+                  Message envoyé avec succès ! cliquez dessus pour fermer le message.
+                </div>
+                <form id="incident-form" class="row g-3">
+                    <div class="col-md-6">
+                    <select name="conducteur_id" id="conducteur_id2" required>
+                    <option value="">Sélectionner un conducteur</option>
+                  </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select name="trajet_id" id="trajet_id" required>
+                    <option value="">Sélectionner un trajet</option>
+                  </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Mail du chauffeur : </label>
+                    <input name="Email" type="email" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Date de depart: </label>
+                    <input name="date" type="date" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Heure du départ : </label>
+                    <input name="Heure_D" type="time" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Heure d'arrivée : </label>
+                    <input name="Heure_A" type="time" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Message : </label>
+                    <textarea name="message" id="" type="text" class="form-control" required></textarea>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-primary px-4" type="submit">Envoyer</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="dash-support">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Support client</h4>
+                <p>Besoin d'aide ? N'hésitez pas !</p>
+                <a href="mailto:support@ecoride.com"><button type="button" class="btn btn-outline-success">Contactez-nous</button></a>
+              </div>
+            </div>
+
+             <div class="tab-pane fade" id="dash-deco">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Se deconnecter du conte</h4>
+                <a href="#"><button id="deco" type="button" class="btn btn-outline-success">Deconnexion</button></a>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="dash-back">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Retour a EcoRide</h4>
+                <a href="../index01.html"><button type="button" class="btn btn-outline-success">Retour a la platforme</button></a>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="dash-remove">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Supprimer le conte</h4>
+                <button onclick="remove()" id="removebutton" type="button" class="btn btn-outline-success">Supprimer le conte</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

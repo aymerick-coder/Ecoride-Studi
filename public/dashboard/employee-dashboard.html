@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="user-dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous" defer></script>
+    <script src="employees-dashboard.js" defer></script>
+    <title>Tableau de bord employée-EcoRide</title>
+</head>
+<body class="animated fadeIn">
+ <body>
+  <section class="py-5">
+    <div id="InfoUser" class="container">
+      <h3 id="employee-name1" class="text-start pb-4 fw-bold text-capitalize text-dark userName"></h3>
+      <div class="row">
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
+          <div class="bg-white p-3 rounded-4 shadow-lg mb-4 text-center">
+            <h6 id="employee-name2" class="mb-0 fw-bold text-dark"></h6>
+            <small id="employee-email" class="text-muted"></small>
+          </div>
+          <button class="btn btn-outline-primary d-md-none w-100 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#memberNav" aria-expanded="false" aria-controls="memberNav">
+            ☰ Menu
+          </button>
+          <div class="collapse d-md-block" id="memberNav">
+            <div class="list-group rounded-4 shadow-lg">
+              <a class="list-group-item list-group-item-action active p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-home">
+                <i class="bi bi-speedometer2"></i>Tableau de bord
+              </a>
+              <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-Chauffeur">
+                <i class="bi bi-geo-alt"></i>Avis sur les chauffeurs
+              </a>
+              <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-Chauffeur2">
+                <i class="bi bi-geo-alt"></i>Covoiturages qui se sont mal passé
+              </a>
+               <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-back">
+                <i class="bi bi-box-arrow-left"></i> Retour EcoRide
+              </a>
+               <a class="list-group-item list-group-item-action p-3 d-flex align-items-center gap-2" data-bs-toggle="pill" href="#dash-deco">
+                <i class="bi bi-box-arrow-left"></i> Déconnexion
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Tab Content -->
+        <div class="col-md-8 col-lg-9">
+          <div class="tab-content">
+
+            <!-- Dashboard -->
+            <div class="tab-pane fade show active" id="dash-home">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-4">Tableau de bord</h4>
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-bag-check text-primary fs-2"></i>
+                      <h6 class="fw-bold mt-2">Avis</h6>
+                      <p id="avis" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="border rounded-4 p-3 text-center shadow-sm">
+                      <i class="bi bi-bag-check text-primary fs-2"></i>
+                      <h6 class="fw-bold mt-2">Incidents</h6>
+                      <p id="incidents" class="mb-0 text-muted">0</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+             <div class="tab-pane fade" id="dash-Chauffeur">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 id="sectionhist" class="fw-semibold text-dark mb-3">Avis sur les chauffeurs</h4>
+                <div id="hist" class="table-responsive">
+                 <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Nom-Prenom (passager) : </th>
+                                    <th scope="col">Nom-Prenom (conducteur) : </th>
+                                    <th scope="col">Trajet : </th>
+                                    <th scope="col">Date : </th>
+                                    <th scope="col">Mail (passager) : </th>
+                                    <th scope="col">Mail (conducteur) : </th>
+                                    <th scope="col">Note : </th>
+                                    <th scope="col">Ponctualitée : </th>
+                                    <th scope="col">Conduite sécurisée : </th>
+                                    <th scope="col">A Recommander : </th>
+                                    <th scope="col">Avis : </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-Avis"></tbody>
+                        </table>
+                   </div>
+              </div>
+             </div>
+
+
+
+             <div class="tab-pane fade" id="dash-Chauffeur2">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 id="sectionhist" class="fw-semibold text-dark mb-3">Covoiturages qui se sont mal passés</h4>
+                <div id="hist" class="table-responsive">
+                 <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Numero du covoiturage : </th>
+                                    <th scope="col">Nom-Prenom du passager : </th>
+                                    <th scope="col">Nom-Prenom du chauffeur : </th>
+                                    <th scope="col">Trajet : </th>
+                                    <th scope="col">Date de depart : </th>
+                                    <th scope="col">Heure de depart' : </th>
+                                    <th scope="col">Heure d'arrivée : </th>
+                                    <th scope="col">Mail du passager : </th>
+                                    <th scope="col">Mail du chauffeur : </th>
+                                    <th scope="col">Message : </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-Avis2"></tbody>
+                        </table>
+                   </div>
+              </div>
+             </div>
+    
+             <div class="tab-pane fade" id="dash-deco">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Se deconnecter du conte</h4>
+                <a href="#"><button id="deco" type="button" class="btn btn-outline-success">Deconnexion</button></a>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="dash-back">
+              <div class="bg-white p-4 p-md-5 shadow-lg rounded-4">
+                <h4 class="fw-semibold text-dark mb-3">Retour a EcoRide</h4>
+                <a href="../index01.html"><button type="button" class="btn btn-outline-success">Retour a la platforme</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
