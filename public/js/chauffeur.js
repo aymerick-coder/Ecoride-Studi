@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const boutonMessage = document.getElementById("btn-message");
     const id = params.get("id");
-    const trajetId = params.get("trajet_id");  // récupère le trajet_id de l'URL
+    const trajetId = params.get("trajet_id"); 
 
     console.log("param id =>", id);
     console.log("trajet id =>", trajetId);
