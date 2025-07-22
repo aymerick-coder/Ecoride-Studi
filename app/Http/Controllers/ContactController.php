@@ -17,10 +17,8 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // enregistrement en base
         Contact::create($data);
 
-        // retour avec message flash
         return redirect()
             ->back()
             ->with('success', 'Votre message a bien été envoyé.');
