@@ -207,7 +207,7 @@ $trajets = DB::table('trajet_participants')
 }
 public function index(Request $request)
 {
-    $trajets = Trajet::with(['conducteur', 'vehicule'])  // Ajout de la relation vehicule
+    $trajets = Trajet::with(['conducteur', 'vehicule']) 
         ->withAvg(['avis as note_moyenne' => function ($q) {
             $q->where('statut_avis', 'approuve'); 
         }], 'note')
