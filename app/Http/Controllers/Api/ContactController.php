@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    // POST /api/contacts
     public function store(Request $request)
     {
         $data = $request->validate([
