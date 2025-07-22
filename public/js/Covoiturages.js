@@ -5,8 +5,6 @@ var options = {
 async function AfficherTrajets() {
   let reponse = await fetch("/api/trajets")
   let trajets = await reponse.json();
-  console.log("resultat json", trajets);
-  console.log(trajets);
   let result = document.getElementById("Users");
   trajets.forEach(trajet => {
       let html = `
