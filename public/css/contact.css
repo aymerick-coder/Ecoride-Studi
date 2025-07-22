@@ -531,21 +531,6 @@ section {
 h3 {
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 body{
@@ -596,9 +581,9 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    width: 100%;       /* largeur relative au parent */
-    max-width: 400px;   /* limite la largeur max */
-    height: auto;       /* adapte la hauteur au contenu */
+    width: 100%;       
+    max-width: 400px;  
+    height: auto;       
     padding: 10px;
     box-sizing: border-box;
 }
