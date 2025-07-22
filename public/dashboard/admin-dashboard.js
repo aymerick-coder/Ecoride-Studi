@@ -45,7 +45,6 @@ document.addEventListener("click", function(e) {
     const success = document.getElementById("alert1");
     const Mess = document.getElementById("Mcontainer");
     const token = localStorage.getItem("token");
-    console.log("Bouton suspendre cliqué, ID=", id);
 
     fetch('/api/utilisateurs/suspendre/' + id, {
       method: 'POST',
@@ -81,7 +80,6 @@ document.addEventListener("click", function(e) {
         const id = button.dataset.id;
         const token = localStorage.getItem("token");
         if (confirm("Confirmer la suppression ?")) {
-            console.log("Bouton supprimer cliqué, ID=", id);
             fetch('/api/utilisateurs/' + id, {
                 method: 'DELETE',
                 headers: {
