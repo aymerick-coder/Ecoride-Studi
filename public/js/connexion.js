@@ -83,8 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const email    = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     console.log("Envoi POST /api/connexion…", { email, password });
-
-    console.log("Tous les cookies :", document.cookie);
+      
     const rawCookie = document.cookie
       .split('; ')
       .find(row => row.startsWith('XSRF-TOKEN='));
@@ -124,11 +123,6 @@ if (role === "admin") {
 });
 
 
-const avispage = document.getElementById("nos_avis");
-
-avispage.addEventListener('click',() => {
-  window.location.href = "/nos_avis.html";
-})
 
 
 
