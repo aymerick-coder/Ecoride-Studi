@@ -17,5 +17,5 @@ class TrajetParticipant extends Model
         
     ];
 
-    public $timestamps = true; // ou false si pas de created_at / updated_at
+    public $timestamps = true;
 }
