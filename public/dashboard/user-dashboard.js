@@ -118,7 +118,6 @@ async function chargerVehicules() {
   vehicule_id: form.querySelector('select[name="vehicule_id"]').value,
     };
     try {
-        console.log('🛠️ Avant appel POST /api/trajets', data);
 
       const res = await fetch("/api/trajets", {
         
@@ -133,7 +132,6 @@ async function chargerVehicules() {
        const alert = document.getElementById("Alert1");
       if (res.status !== 201 && res.status !== 422) {
   const text = await res.text();
-  console.error('––––– Corps de la réponse –––––\n', text);
   return alert(`Erreur réseau : ${res.status} (voir console)`);
 }
 
