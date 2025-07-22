@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!token) {
         alert("Vous devez vous connecter ou créer un compte pour participer à ce covoiturage.");
-        window.location.href = "connexion-Ecoride.html";  
+        window.location.href = "login-02.html";  
         return;
     }
 
